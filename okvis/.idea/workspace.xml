@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="okvis" targetName="ceres_external" />
+      <config projectName="okvis" targetName="opengv_external" />
+      <config projectName="okvis" targetName="okvis_timing" />
+      <config projectName="okvis" targetName="okvis_matcher" />
+      <config projectName="okvis" targetName="okvis_kinematics" />
+      <config projectName="okvis" targetName="okvis_common" />
+      <config projectName="okvis" targetName="okvis_app_synchronous" />
+      <config projectName="okvis" targetName="okvis_multisensor_processing" />
+      <config projectName="okvis" targetName="okvis_time" />
+      <config projectName="okvis" targetName="okvis_ceres" />
+      <config projectName="okvis" targetName="brisk_external" />
+      <config projectName="okvis" targetName="okvis_cv" />
+      <config projectName="okvis" targetName="okvis_util" />
+      <config projectName="okvis" targetName="okvis_frontend" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="531125a9-fac6-42ea-97f0-fd63bfc821c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/build/opengv/src/opengv/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/opengv/src/opengv/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config_fpga_p2_euroc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config_fpga_p2_euroc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okvis_apps/src/okvis_app_synchronous.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/okvis_apps/src/okvis_app_synchronous.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okvis_multisensor_processing/include/okvis/ThreadedKFVio.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/okvis_multisensor_processing/include/okvis/ThreadedKFVio.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/okvis_multisensor_processing/src/ThreadedKFVio.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/okvis_multisensor_processing/src/ThreadedKFVio.cpp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="755948671">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cpp" value="4" />
+          <entry key="hpp" value="1" />
+          <entry key="yaml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="ObjectiveC" value="5" />
+          <entry key="YAML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cpp" value="437" />
+          <entry key="hpp" value="46" />
+          <entry key="yaml" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="ObjectiveC" value="483" />
+          <entry key="YAML" value="10" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/okvis_apps/src/okvis_app_synchronous.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1035">
+              <caret line="69" column="3" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/okvis_multisensor_processing/include/okvis/ThreadedKFVio.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5100">
+              <caret line="340" selection-start-line="340" selection-end-line="340" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/okvis_multisensor_processing/src/ThreadedKFVio.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="878" column="43" lean-forward="true" selection-start-line="878" selection-start-column="43" selection-end-line="878" selection-end-column="43" />
+              <folding>
+                <element signature="e#2125#2139#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>OKVIS</find>
+      <find>OKVIS ca</find>
+      <find>publisherLoop</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/config/config_fpga_p2_euroc.yaml" />
+        <option value="$PROJECT_DIR$/okvis_multisensor_processing/src/VioVisualizer.cpp" />
+        <option value="$PROJECT_DIR$/okvis_apps/src/okvis_app_synchronous.cpp" />
+        <option value="$PROJECT_DIR$/okvis_multisensor_processing/include/okvis/ThreadedKFVio.hpp" />
+        <option value="$PROJECT_DIR$/okvis_multisensor_processing/src/ThreadedKFVio.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="288" />
+    <option name="y" value="84" />
+    <option name="width" value="1135" />
+    <option name="height" value="806" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+              <item name="okvis_apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+              <item name="okvis_apps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+              <item name="okvis_multisensor_processing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+              <item name="okvis_multisensor_processing" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+              <item name="okvis_multisensor_processing" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okvis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okvis" type="462c0819:PsiDirectoryNode" />
+              <item name="okvis_multisensor_processing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="Threaded&#9;FILE&#9;file:///home/chris/MARS/SLAM_Benchmarking/okvis/okvis_multisensor_processing/src/ThreadedKFVio.cpp" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../catkin_ws/src/rovio" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.okvis_app_synchronous">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="brisk_external" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="brisk_external" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ceres_external" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="ceres_external" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_app_synchronous" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_app_synchronous" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="okvis" RUN_TARGET_NAME="okvis_app_synchronous">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_ceres" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_ceres" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_common" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_common" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_cv" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_cv" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_frontend" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_frontend" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_kinematics" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_kinematics" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_matcher" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_matcher" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_multisensor_processing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_multisensor_processing" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_time" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_time" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_timing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_timing" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="okvis_util" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="okvis_util" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="opengv_external" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="okvis" TARGET_NAME="opengv_external" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.brisk_external" />
+      <item itemvalue="Application.ceres_external" />
+      <item itemvalue="Application.okvis_app_synchronous" />
+      <item itemvalue="Application.opengv_external" />
+      <item itemvalue="Application.okvis_ceres" />
+      <item itemvalue="Application.okvis_common" />
+      <item itemvalue="Application.okvis_cv" />
+      <item itemvalue="Application.okvis_frontend" />
+      <item itemvalue="Application.okvis_kinematics" />
+      <item itemvalue="Application.okvis_matcher" />
+      <item itemvalue="Application.okvis_multisensor_processing" />
+      <item itemvalue="Application.okvis_time" />
+      <item itemvalue="Application.okvis_timing" />
+      <item itemvalue="Application.okvis_util" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="531125a9-fac6-42ea-97f0-fd63bfc821c9" name="Default Changelist" comment="" />
+      <created>1533229723394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533229723394</updated>
+      <workItem from="1533229724797" duration="1579000" />
+      <workItem from="1534191290589" duration="4966000" />
+      <workItem from="1534274781185" duration="310000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="6855000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="288" y="84" width="1135" height="806" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2993572" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.32743362" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/okvis_multisensor_processing/src/VioVisualizer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="220" column="56" selection-start-line="220" selection-start-column="56" selection-end-line="220" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config_fpga_p2_euroc.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-621">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/okvis_apps/src/okvis_app_synchronous.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="3" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/okvis_multisensor_processing/include/okvis/ThreadedKFVio.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5100">
+          <caret line="340" selection-start-line="340" selection-end-line="340" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/okvis_multisensor_processing/src/ThreadedKFVio.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="878" column="43" lean-forward="true" selection-start-line="878" selection-start-column="43" selection-end-line="878" selection-end-column="43" />
+          <folding>
+            <element signature="e#2125#2139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

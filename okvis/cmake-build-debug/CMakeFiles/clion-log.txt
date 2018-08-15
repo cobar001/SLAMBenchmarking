@@ -1,0 +1,68 @@
+/home/chris/Downloads/clion-2018.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/chris/MARS/SLAM_Benchmarking/okvis
+-- The C compiler identification is GNU 5.4.0
+-- The CXX compiler identification is GNU 5.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning at CMakeLists.txt:52 (message):
+  CMAKE_BUILD_TYPE not set to 'Release'.  Performance may be terrible.
+
+
+-- Assuming SSE instructions available.
+-- Found Eigen: /usr/include/eigen3 (Required is at least version "2.91.0") 
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+-- Checking for module 'visensor'
+--   No package 'visensor' found
+-- Could NOT find VISensorDriver (missing: VISensorDriver_LIBRARY VISensorDriver_INCLUDE_DIR) 
+-- libvisensor not found
+-- Found Glog: /usr/include  
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found BLAS: /usr/lib/libf77blas.so;/usr/lib/libatlas.so  
+-- Found AMD library: /usr/lib/x86_64-linux-gnu/libamd.so
+-- Found AMD header in: /usr/include/suitesparse
+-- Found CAMD library: /usr/lib/x86_64-linux-gnu/libcamd.so
+-- Found CAMD header in: /usr/include/suitesparse
+-- Found COLAMD library: /usr/lib/x86_64-linux-gnu/libcolamd.so
+-- Found COLAMD header in: /usr/include/suitesparse
+-- Found CCOLAMD library: /usr/lib/x86_64-linux-gnu/libccolamd.so
+-- Found CCOLAMD header in: /usr/include/suitesparse
+-- Found CHOLMOD library: /usr/lib/x86_64-linux-gnu/libcholmod.so
+-- Found CHOLMOD header in: /usr/include/suitesparse
+-- Found SuiteSparseQR library: /usr/lib/x86_64-linux-gnu/libspqr.so
+-- Found SuiteSparseQR header in: /usr/include/suitesparse
+-- Found Intel Thread Building Blocks (TBB) library: /usr/lib/x86_64-linux-gnu/libtbb.so, assuming SuiteSparseQR was compiled with TBB.
+-- Found Intel Thread Building Blocks (TBB) Malloc library: /usr/lib/x86_64-linux-gnu/libtbbmalloc.so
+-- Found SuiteSparse_config library: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so
+-- Found SuiteSparse_config header in: /usr/include/suitesparse
+-- Adding librt: /usr/lib/x86_64-linux-gnu/librt.so to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
+-- Did not find METIS library (optional SuiteSparse dependency)
+-- Failed to find CXSparse - Could not find CXSparse include directory, set CXSPARSE_INCLUDE_DIR to directory containing cs.h
+-- OpenMP found
+-- NOTE: Suppressing some warnings when compiling OpenGV.
+-- Deactivating timers.
+-- Deactivating timers.
+-- /home/chris/MARS/SLAM_Benchmarking/okvis/cmake-build-debug/okvis_multisensor_processing/okvisConfig.hpp
+-- Boost version: 1.58.0
+-- Found the following Boost libraries:
+--   filesystem
+--   system
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/chris/MARS/SLAM_Benchmarking/okvis/cmake-build-debug
