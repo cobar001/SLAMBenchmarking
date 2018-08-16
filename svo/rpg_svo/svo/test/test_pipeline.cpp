@@ -50,7 +50,7 @@ public:
 BenchmarkNode::BenchmarkNode()
 {
 //  cam_ = new vk::PinholeCamera(752, 480, 315.5, 315.5, 376.0, 240.0);
-  cam_ = new vk::PinholeCamera(752, 480, 458.654, 457.296, 367.215, 248.375);
+  cam_ = new vk::PinholeCamera(752, 480, 458.654, 457.296, 367.215, 248.375); // mav0
   vo_ = new svo::FrameHandlerMono(cam_);
   vo_->start();
 }
@@ -63,36 +63,9 @@ BenchmarkNode::~BenchmarkNode()
 
 void BenchmarkNode::runFromFolder()
 {
-//  for(int img_id = 2; img_id < 188; ++img_id)
-//  {
-//    // load image
-//    std::stringstream ss;
-//    ss << svo::test_utils::getDatasetDir() << "/sin2_tex2_h1_v8_d/img/frame_"
-//       << std::setw( 6 ) << std::setfill( '0' ) << img_id << "_0.png";
-//    if(img_id == 2)
-//      std::cout << "reading image " << ss.str() << std::endl;
-//    cv::Mat img(cv::imread(ss.str().c_str(), 0));
-//    assert(!img.empty());
-//
-//
-//
-//    // process frame
-//    vo_->addImage(img, 0.01*img_id);
-//
-//    // display tracking quality
-//    if(vo_->lastFrame() != NULL)
-//    {
-//    	std::cout << "Frame-Id: " << vo_->lastFrame()->id_ << " \t"
-//                  << "#Features: " << vo_->lastNumObservations() << " \t"
-//                  << "Proc. Time: " << vo_->lastProcessingTime()*1000 << "ms \n";
-//
-//    	// access the pose of the camera via vo_->lastFrame()->T_f_w_.
-//    }
-//  }
-
     DIR *dir;
     struct dirent *ent;
-    std::string dataset_dir("/home/chris/MARS/Datasets/mav0/cam0/data/");
+    std::string dataset_dir("/home/mars/MARS/Datasets/mav0/cam0/data/");
     std::vector<int64_t> image_file_names;
     if ((dir = opendir (dataset_dir.c_str())) != NULL) {
         /* print all the files and directories within directory */
@@ -121,7 +94,7 @@ void BenchmarkNode::runFromFolder()
         full_file_paths.push_back(ss.str());
     }
 
-    std::ofstream pose_file("/home/chris/MARS/SLAM_Benchmarking/output/svo_pose.txt");
+    std::ofstream pose_file("/home/mars/MARS/SLAMBenchmarking/output/svo_pose.txt");
     for(unsigned int img_id = 2; img_id < full_file_paths.size() - 1; ++img_id) {
         if(img_id == 2)
             std::cout << "reading image " << img_id << std::endl;

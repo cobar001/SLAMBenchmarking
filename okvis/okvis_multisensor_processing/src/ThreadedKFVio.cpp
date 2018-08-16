@@ -857,7 +857,7 @@ void ThreadedKFVio::optimizationLoop() {
 
 // Loop that publishes the newest state and landmarks.
 void ThreadedKFVio::publisherLoop() {
-  std::ofstream pose_file("/home/chris/MARS/SLAM_Benchmarking/okvis/build/output/pose.txt");
+  std::ofstream pose_file("/home/mars/MARS/SLAMBenchmarking/output/okvis_pose.txt");
   for (;;) {
     // get the result data
     OptimizationResults result;

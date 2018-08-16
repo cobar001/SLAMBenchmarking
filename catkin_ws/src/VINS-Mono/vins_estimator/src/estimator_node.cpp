@@ -137,6 +137,7 @@ getMeasurements()
 
 void imu_callback(const sensor_msgs::ImuConstPtr &imu_msg)
 {
+
     if (imu_msg->header.stamp.toSec() <= last_imu_t)
     {
         ROS_WARN("imu message in disorder!");

@@ -92,7 +92,7 @@ if not os.path.isdir(g2o_path+'/build'):
 else:
 	print("g2o already built")
 
-#install 
+#install ceres
 ceres_path = third_party_dir+'/ceres-solver'
 if not os.path.isdir(ceres_path):
 	print('Error: ceres-solver not found')
@@ -109,5 +109,21 @@ if not os.path.isdir(ceres_path+'/build'):
 	print("\nceres-solver install finished")
 else:
 	print("ceres-solver already built")
+
+#install Pangolin
+pangolin_path = third_party_dir+'/Pangolin'
+if not os.path.isdir(pangolin_path):
+	print('Error: Pangolin not found')
+	exit()
+if not os.path.isdir(pangolin_path+'/build'):
+	printStatus(pangolin_path)
+	os.chdir(pangolin_path)
+	os.mkdir('build')
+	os.chdir(pangolin_path+'/build')
+	os.system('cmake ..')
+	os.system('cmake --build .')
+	print("\nPangolin install finished")
+else:
+	print("Pangolin already built")
 
 print('\nFinished installing third party packages\n')

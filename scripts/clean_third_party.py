@@ -82,4 +82,18 @@ else:
 	os.chdir(ceres_path)
 	shutil.rmtree(ceres_path+'/build')
 	print("ceres clean success")
+
+# clean pangolin
+pangolin_path = third_party_dir + '/Pangolin'
+if not os.path.isdir(pangolin_path):
+	print('Error: pangolin not found')
+	exit()
+if not os.path.isdir(pangolin_path + '/build'):
+	print("pangolin not built")
+else:
+	printStatus(pangolin_path)
+	os.chdir(pangolin_path)
+	shutil.rmtree(pangolin_path + '/build')
+	print("pangolin clean success")
+
 print("\nthird-party complete\n")
