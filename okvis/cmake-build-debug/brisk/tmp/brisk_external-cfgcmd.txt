@@ -1,1 +1,0 @@
-cmd='/home/chris/Downloads/clion-2018.2/bin/cmake/linux/bin/cmake;-DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>;-DCMAKE_BUILD_TYPE:STRING=Debug;-GCodeBlocks - Unix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

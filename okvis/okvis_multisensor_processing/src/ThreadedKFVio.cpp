@@ -858,6 +858,8 @@ void ThreadedKFVio::optimizationLoop() {
 // Loop that publishes the newest state and landmarks.
 void ThreadedKFVio::publisherLoop() {
   std::ofstream pose_file("/home/mars/MARS/SLAMBenchmarking/output/okvis_pose.txt");
+//  bool is_first_est = true;
+//  double first_timestamp_usec = -1.0;
   for (;;) {
     // get the result data
     OptimizationResults result;
@@ -868,13 +870,26 @@ void ThreadedKFVio::publisherLoop() {
     if (stateCallback_ && !result.onlyPublishLandmarks)
       stateCallback_(result.stamp, result.T_WS);
     if (fullStateCallback_ && !result.onlyPublishLandmarks) {
-        Eigen::Matrix3d C = result.T_WS.C();
+//        Eigen::Matrix3d C = result.T_WS.C();
         Eigen::Vector3d t = result.T_WS.r();
-        pose_file << std::setprecision(16) << result.stamp.toSec() << " "
-                  << C(0, 0) << " " << C(0, 1) << " " << C(0, 2) << " "
-                  << C(1, 0) << " " << C(1, 1) << " " << C(1, 2) << " "
-                  << C(2, 0) << " " << C(2, 1) << " " << C(2, 2) << " "
+        Eigen::Quaterniond q = result.T_WS.q();
+        double timestamp_usec = result.stamp.toSec() * 1e6;
+//        if (first_timestamp_usec == -1.0) {
+//          first_timestamp_usec = timestamp_usec;
+//        }
+
+        // Log R matrix
+//        pose_file << std::setprecision(16) << (timestamp_usec - first_timestamp_usec) << " "
+//                  << C(0, 0) << " " << C(0, 1) << " " << C(0, 2) << " "
+//                  << C(1, 0) << " " << C(1, 1) << " " << C(1, 2) << " "
+//                  << C(2, 0) << " " << C(2, 1) << " " << C(2, 2) << " "
+//                  << t(0) << " " << t(1) << " " << t(2) << "\n";
+
+        // Log q quaternion
+        pose_file << std::setprecision(16) << timestamp_usec /* (timestamp_usec - first_timestamp_usec) */ << " "
+                  << q.w() <<" " << q.x() << " " << q.y() << " " << q.z() << " "
                   << t(0) << " " << t(1) << " " << t(2) << "\n";
+
         fullStateCallback_(result.stamp, result.T_WS, result.speedAndBiases,
                            result.omega_S);
     }

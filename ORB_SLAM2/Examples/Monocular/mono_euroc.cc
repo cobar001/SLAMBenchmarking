@@ -111,7 +111,9 @@ int main(int argc, char **argv)
     }
 
     // Stop all threads
-    SLAM.Shutdown();
+    cout << "test1" << endl;
+//    SLAM.Shutdown();
+    cout << "test2" << endl;
 
     // Tracking time statistics
     sort(vTimesTrack.begin(),vTimesTrack.end());
@@ -125,7 +127,7 @@ int main(int argc, char **argv)
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
     // Save camera trajectory
-    SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");
+    SLAM.SaveKeyFrameTrajectoryTUM("/home/mars/MARS/SLAMBenchmarking/output/orbslam2_pose.txt");
 
     return 0;
 }

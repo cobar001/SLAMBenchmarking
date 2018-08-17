@@ -1,142 +1,74 @@
-use_msckf = f
-
-max_h_fov = 953.7
-max_v_fov = 867.7
-
-
-do_hover_zupt_stateonly_update = f
-sigma_hover_zupt = 0.003
-maha_inflate_ratio_visualtracks = 1.2
-maha_inflate_ratio_slamreobs = 1.2
-maha_inflate_ratio_reloc = 1.2
-maha_inflate_ratio_odomplane = 1.2
-do_hover_zupt_statecov_update = f
-thres_consecutive_hover = 5
-
-corner_extractor_min_distance = 10
-use_tracking_by_correlation = f
-logging_path = /home/ryan/tmp/msckf_log.txt
-num_maps = 0
-zero_velocity_update_sigma_sq_ = 0.50
-num_first_images_to_drop = 5
 
 ###################################
-#### Brain parameters #############
+####### Pipeline parameters #######
 ###################################
-max_update_budget_stateonly = 20000000000000
-max_update_budget_statecov = 2000000000000000
-do_hover_fake_GPS_stateonly_update = false
-do_hover_constraint_statecov_update = true
-do_hover_constraint_stateonly_update = false
-sigma_ts_propagation = 1e-7
 
-sigma_pixel_meas = 1.5
-sigma_fake_gps = 1.0
-enable_visualization = true
-sigma_hover_position_displacement = 0.003
-
-should_log_track_info = false
-number_of_cameras = 1
+# cloning policy
 image_processing_step = 1
 cloning_step = 1
-min_window_size_update = 10
-init_offset_for_camera = 0
-remove_unobs_first_pose = true
-
 angle_clone_threshold = 4
 distance_clone_threshold = 0.1
 time_clone_threshold = 22
 
-image_frames_window_size = 300
-corner_frames_window_size = 300
-imu_frames_window_size = 300
+remove_unobs_first_pose = true
+num_first_images_to_drop = 5
 
-imu_use_driver_time = true
-camera_input_start_time = 1
+# memory storage for data history
+image_frames_window_size = 10
+corner_frames_window_size = 70
+imu_frames_window_size = 100
 
-visualization_image_dimension = [752, 480]
+# data paths
+image_path = /home/mars/MARS/Datasets/mav0_mars/mars_format/images
+image_fname_format = m%07d.pgm
+#image_fname_format = image_%05d.pgm
+imu_path = /home/mars/MARS/Datasets/mav0_mars/mars_format/mars_imu.txt
 
+# output
 should_output_to_file = false
-state_log_folder = /usr/local/google/home/tongk/datasets/HT69J0206349_test_case_8/state_log/
+state_log_folder = /usr/local/google/home/kejianw/datasets/pixel/mars1/dump1/state_log/
+should_log_track_info = false
+
+# visualization
+enable_visualization = true
+visualization_image_dimension = [752, 480] # desktop: [use image dim], Pixel: [2560, 1440], YellowStone & S4: [1920, 1280], glass: [640, 360]
+visualize_feature_matches = false
 
 
 ####################################
-############## VT ##################
+############### VT #################
 ####################################
 
 run_vt_with_filter = false
-vocabulary_tree_path = /usr/local/google/home/ccobar/Downloads/PIXEL_ORB.tree
+vocabulary_tree_path = /usr/local/google/home/kejianw/datasets/pixel/datasets_for_tong/PIXEL_ORB.tree
 vt_use_orb = true
 images_returned_by_tree = 5
 inliers_for_loop_closure = 20
 max_features_per_image = 180
 
-###################################
-#### World parameters #############
-###################################
-
-image_path = /usr/local/google/home/ccobar/MARS/scripts/mars_format/images
-image_fname_format = m%07d.pgm
-imu_path = /usr/local/google/home/ccobar/MARS/scripts/mars_format/mars_imu.txt
-feature_tree_path = /usr/local/google/home/ccobar/Downloads/feature_tree.tree
 
 ####################################
-#### Engines parameters ############
+##### Image processing engines #####
 ####################################
 
-iterations_undistort = 20
+use_tracking_by_correlation = false # true for KLT, false for TBM
 
-####################################
-##### Corner Extractor Engine ######
-####################################
-
-corner_extractor_threshold = 20
+# FAST corner extraction parameters
+corner_extractor_threshold = 15
 corner_extractor_nonmaxSuppression = true
-corner_extractor_max_corners = 200
-corner_extractor_min_dist = 3
+corner_extractor_max_corners = 300
+corner_extractor_min_dist = 10
 corner_extractor_sub_pixel = true
 corner_extractor_iterations = 1
 corner_extractor_epsilon = 0.1
 corner_extractor_window_size = 7
-corner_extractor_use_weights = false
-corner_extractor_split_num = [4, 4] # number of split row and col
-corner_extractor_split_weights = [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1] # integers: row-wise tile weights
-corner_extractor_pixel_min_distance = 3
+corner_extractor_use_weights = true
+corner_extractor_split_num = [2, 2] # number of split row and col
+corner_extractor_split_weights = [1 1 1 1] # integers: row-wise tile weights
+corner_extractor_min_distance = 10
 
-#####
-####
-
-# Tracking by matching (TbM) parameters
-tbm_feature_type = 1 # 0:USE_FREAK, 1: USE_ORB
-tbm_prediction_type = 1 # 0: USE_NO_PREDICTION, 1: USE_FEATURE_AT_INFINITY_PREDICTION
-tbm_prediction_poses_type = 0 # 0:USE_PREDICTED_POSES, 1: USE_UPDATED_POSES
-tbm_max_num_new_features = 600
-tbm_image_width = 752
-tbm_image_height = 480
-tbm_search_distance = 40
-tbm_min_distance = 5
-tbm_k_best_matches = 1
-tbm_thres_hover_sensitivity = 1.0
-tbm_use_mask =false
-
-# TbM tracking by matching RANSAC parameters
-tbm_error_tolerance = 1e-5
-tbm_sufficient_angle = 1.0
-tbm_error_type = 2 # 1: ALGEBRAIC_EPIPOLAR_ERROR, 2:EPIPOLAR_AND_REPROJECTION_ERROR
-tbm_ransac_mode = 2 # 1: RANSAC_FIXED_MODE, 2: RANSAC_ADAPTIVE_MODE
-tbm_prob_inlier_hypothesis = 0.999
-tbm_outlier_probability = 0.3
-tbm_max_num_hypotheses = 70
-tbm_refine_classification = true
-####################################
-##### Initializer Engine ###########
-####################################
-
-####################################
-##### KLT Engine ###################
-####################################
-
-klt_max_layers = 1
+# KLT corner tracking parameters
+klt_max_layers = 3
 klt_iterations_num = 30
 klt_min_eigen_threshold = 0.001
 klt_epsilon = 0.1
@@ -148,181 +80,33 @@ klt_reuse_image = true
 klt_predict_angle_thres = 0
 klt_min_distance = 5
 
+# Tracking by matching (TbM) parameters
+tbm_feature_type = 1 # 0:USE_FREAK, 1: USE_ORB
+tbm_prediction_type = 1 # 0: USE_NO_PREDICTION, 1: USE_FEATURE_AT_INFINITY_PREDICTION
+tbm_prediction_poses_type = 0 # 0:USE_PREDICTED_POSES, 1: USE_UPDATED_POSES
+tbm_max_num_new_features = 400
+tbm_image_width = 640
+tbm_image_height = 480
+tbm_search_distance = 40
+tbm_min_distance = 5
+tbm_k_best_matches = 1
+tbm_use_mask = false
+tbm_refine_classification = true
 
-####################################
-##### RANSAC Engine ################
-####################################
-
-ransac_outlier_prob_2pt = 0.1
-ransac_size_bound_percent_2pt = 0.7
-ransac_max_iterations_2pt = 60
-ransac_outlier_prob_0pt = 0.1
-ransac_size_bound_percent_0pt = 0.7
-ransac_max_iterations_0pt = 1
-ransac_error_tolerance_2pt = 1e-4 #1e-3 # S4: 1e-5
-ransac_rejection_percent_2pt = 0.3
-ransac_sufficient_angle_2pt = 0.2 #1.0 # S4: 0.2
-ransac_error_type_2pt = 2
-ransac_error_tolerance_0pt = 0.8 #1.5 # S4: 0.8
-ransac_rejection_percent_0pt = 0.3
-ransac_already_homogeneous = true
-
-ransac_error_tolerance = 1e-3
-ransac_sufficient_angle = 1.5
-ransac_error_type = 2
-ransac_mode = 2
+# RANSAC outlier rejection parameters
+ransac_error_tolerance = 1e-4
+ransac_sufficient_angle = 1.0
+ransac_error_type = 2  # 1: ALGEBRAIC_EPIPOLAR_ERROR, 2:EPIPOLAR_AND_REPROJECTION_ERROR
+ransac_mode = 2 # 1: RANSAC_FIXED_MODE, 2: RANSAC_ADAPTIVE_MODE
 ransac_prob_inlier_hypothesis = 0.999
 ransac_outlier_probability = 0.3
 ransac_max_num_hypotheses = 50
-ransac_thres_hover_sensitivity = 0.3
+ransac_already_homogeneous = true
 
 
 ####################################
-##### Initializer Engine ###########
+############ HOVERING ##############
 ####################################
-
-accel_bias = [0.180556 -0.265934  0.301192]
-gyro_bias = [-0.000629672 -0.000246707  -0.00161536]
-
-#intrinsics: [458.654, 457.296, 367.215, 248.375] #fu, fv, cu, cv
-#distortion_coefficients: [-0.28340811, 0.07395907, 0.00019359, 1.76187114e-05]
-
-fc = [458.654, 457.296]
-cc = [367.215, 248.375]
-kc = [0.1592295896141003, -0.4733961007958478, 0, 0, 0.4469305901953577]
-
-image_dimension = [752, 480]
-
-rolling_shutter_time = 0.032
-imu_dt = 0.004962 #0.009924
-imu_driver_time_offset = 0 # time offset added to imu driver's time stamps, unit: Seconds
-
-gravity_magnitude = 9.8
-imu_q_cam = [0.007707179755538, -0.010499323370588, 0.701752800292051, 0.712301460669035]
-imu_p_cam =[-0.0216401454975, -0.064676986768, 0.00981073058949]
-# gyro_noise, gyro_bias_noise, accel_noise, accel_bias_noise
-imu_noises = [0.000531, 0.000141254, 0.00488365, 0.0125893]
-
-use_imu_intrinsics = true
-
-accel_q_gyro = [-0.002171572368697718, 0.00439275475405679, 0.002050010239019437, 0.99998589261906]
-skew_gyro =  [0.002062538533935636, -0.0007983710158768625, 0.008773682405082549]
-scale_gyro = [0.992548583459486, 0.9862305371000831, 0.9950963584834991]
-skew_accel = [-0.001760722151037201, -0.01238741610822612, 0.0008593471278489317]
-scale_accel = [ 1.011912719299508, 1.002964489591412, 1.019885193829966]
-gyro_g_sensitivity = [0 0 0 0 0 0 0 0 0]
-
-prior_roll = 10
-prior_pitch = 10
-
-prior_yaw = 1e3
-prior_position = 1e3
-
-prior_extrinsic_position = 10
-prior_extrinsic_orientation = 10
-
-prior_time_sync = 1e4
-
-prior_velocity = 1e2
-prior_accel_bias = 1e2
-prior_gyro_bias = 1e2
-prior_rolling_shutter = 1e5
-
-prior_global_phi = 2.0
-prior_global_position = 0.3
-
-
-##############################################
-#######  ISWF Information Manager Engine #####
-##############################################
-
-max_number_of_frames = 12
-min_window_size = 7
-min_track_length = 4
-max_s_update_budget = 2000000000000
-max_sc_update_budget = 20000000000000000
-max_slam_num = 30
-max_state_cov_num = 50
-max_state_only_num = 50
-
-triangulate_cond_num = 300
-max_feat_distance = 30.0
-min_feat_distance = 0.0
-triangulate_already_homogeneous = false
-
-
-##############################################
-#######  ODOMETRY PARAMETERS             #####
-##############################################
-
-use_odometry = false
-odometer_type = FILE ## "BLUETOOTH" or "FILE"
-odometry_path = /media/mars/DATA/Dataset/Lawnmower/outdoor_dataset_random/encoder_data.txt
-odometry_update_clones_num = 2
-odometry_clone_index_end_offset = 1
-
-use_odometry_plane_constraint = false
-
-odom_q_imu = [0.7427237196288502, 0.01470927937016388, -0.6691043177682974, 0.02108376970365992]
-odom_p_imu = [0.5337771581956401, 0.01644192569955659, 0]
-
-wheel_baseline = 0.51
-left_wheel_radius = 1.0
-right_wheel_radius = 1.0
-odometry_multiplier = 0.004459400146306
-
-
-##############################################
-#######  MAP UPDATE PARAMETERS           #####
-##############################################
-
-use_relocalization = false
-map_path = /usr/local/google/home/rdutoit/mars_ws/MarsFramework/MARSFramework/build/tree/
-
-vt_min_num_reloc_match = 10
-vt_reloc_step_before_init = 1
-vt_reloc_step_after_init = 2
-
-min_num_relocinlier_update = 10
-min_num_reloc_init = 12
-
-vt_hamming_dist = 80
-clone_velocity = true
-##############################################
-#######  WIFI PARAMETERS                 #####
-##############################################
-
-send_states_over_wifi = false
-receiver_ip = 192.168.10.8
-
-# For the new information manager
-use_new_information_manager = t
-fim_window_size_track_recovery = 2
-fim_window_size_mapping_track_recovery = 2
-fim_track_score_type = 1 #0: USE_TRACK_LENGTH, 1: USE_TRACK_SPAN, 2: USE_TRACK_DENSITY
-fim_min_score_mapping_tracks = 5
-fim_min_score_state_constraint_absorbed_tracks = 4
-fim_min_score_state_constraint_unabsorbed_tracks = 4
-fim_shuffle_tracks_before_selection = true
-
-camera_model = radial
-
-estimate_camera_center = false
-prior_camera_center = 1
-
-estimate_camera_focallength = false
-prior_camera_focallength = 1
-
-use_redwood_imu_intrinsics = true
-
-propagate_map = true
-
-sigma_map_position_inv = 100
-sigma_map_orientation_inv = 10000
-sigma_map_hovering_position_inv = 10000
-sigma_map_hovering_orientation_inv = 10000
-
-map_based_relocalization_is_feature_based=false
 
 # accel low pass filter hovering parameters
 lpf_cut_off_frequency = 1.0
@@ -331,8 +115,199 @@ lpf_hard_static_thres_multiplier = 0.8
 lpf_static_counter_threshold = 10
 lpf_hard_static_counter_multiplier = 1.0
 
-visualize_feature_matches=false
+# ransac hovering parameters
+ransac_thres_hover_sensitivity = 1.0 # disabled if <= 1
+
+# filter hover update flags and sigmas
+do_hover_zupt_statecov_update = false
+do_hover_zupt_stateonly_update = false
+do_hover_constraint_statecov_update = true
+do_hover_constraint_stateonly_update = false
+do_hover_fake_GPS_stateonly_update = false
+sigma_hover_zupt = 0.003
+sigma_hover_position_displacement = 0.005
+sigma_fake_gps = 0.01
+
+
+####################################
+############## IMU #################
+####################################
+
+imu_use_driver_time = true
+imu_dt = 0.004962
+gravity_magnitude = 9.8
+
+# gyro_noise, gyro_bias_noise, accel_noise, accel_bias_noise
+imu_noises = [0.000531, 0.000141254, 0.00488365, 0.0125893]
+
+#accel_bias = [0.05241082703519169, 0.03164591541119861, 0.01499683593322229]
+#gyro_bias = [-0.001589208688533928, 0.004555815112681601, 0.002264977901912085]
+
+accel_bias = [0.180556 -0.265934  0.301192]
+gyro_bias = [-0.000629672 -0.000246707  -0.00161536]
+
+use_imu_intrinsics = false
+use_redwood_imu_intrinsics = true
+accel_q_gyro = [0.003075671028271243, -0.003993823198721385, 0.001848045860737634, 0.9999855870713737]
+skew_gyro = [0.002879610294647147, -0.002920473592519956, 0.0119957612414476]
+scale_gyro = [0.9901165638129444, 0.9841073207993644, 0.99563892405062]
+skew_accel = [0.000203747514294311, -0.01035672710104565, -0.0003024286282239364]
+scale_accel = [1.011407928078425, 1.004189305315422, 1.020636409553658]
+gyro_g_sensitivity = [0 0 0 0 0 0 0 0 0]
+
+
+####################################
+############## Camera ##############
+####################################
+
+image_dimension = [752, 480]
+rolling_shutter_time = 0.032
+
+camera_model = radial # USE: "tango", "radial", or "fisheye"
+#fc = [475.827147026236, 475.789965680356]
+#cc = [319.2286429437943, 240.2426502247512]
+#kc = [0.03260506918826768, -0.08155134209519946, 0.0, 0.0, 0.1010667173747039]
+
+fc = [458.654, 457.296]
+cc = [367.215, 248.375]
+kc = [0.1592295896141003, -0.4733961007958478, 0, 0, 0.4469305901953577]
+
+estimate_camera_center = false
+prior_camera_center = 1
+estimate_camera_focallength = false
+prior_camera_focallength = 1
+
+# w/o rotation in imu-file-receiver
+#imu_q_cam = [-0.714214233998229, 0.699872531146630, -0.000906050878541, 0.008697538303375]
+#imu_p_cam = [0.007552706862850, 0.008558057458680, -0.006295815768731]
+
+# w/ rotation in imu-file-receiver
+#imu_q_cam = [-0.9999103408200783, -0.01014111534012792, -0.006790763034262665, 0.005509413593629924]
+#imu_p_cam = [-0.008558057458680117, 0.007552706862850324, -0.006295815768730708]
+
+imu_q_cam = [0.007707179755538, -0.010499323370588, 0.701752800292051, 0.712301460669035]
+imu_p_cam =[-0.0216401454975, -0.064676986768, 0.00981073058949]
+
+####################################
+####### Interpolation Model ########
+####################################
 
 use_imu_integration_for_linearization = true
 buffer_extra_imu_integration = 0 # number of extra imus to integrate for linearization pose buffer
 reintegrate_imu_poses_after_update = true
+
+
+####################################
+######### Prior and Sigma ##########
+####################################
+
+prior_roll = 10
+prior_pitch = 10
+
+prior_yaw = 1e6
+prior_position = 1e6
+
+prior_extrinsic_position = 100
+prior_extrinsic_orientation = 100
+
+prior_gyro_bias = 1e2
+prior_velocity = 1e2
+prior_accel_bias = 1e2
+
+prior_time_sync = 1e4
+sigma_ts_propagation = 1e-6
+prior_rolling_shutter = 1e3
+
+sigma_pixel_meas = 1.5
+
+maha_inflate_ratio_visualtracks = 1
+maha_inflate_ratio_slamreobs = 1
+maha_inflate_ratio_reloc = 1
+maha_inflate_ratio_odomplane = 1
+
+
+##############################################
+########  Information Manager Engine #########
+##############################################
+
+use_new_information_manager = true
+
+# Shared between the two information managers
+max_number_of_frames = 10
+min_window_size = 4
+max_slam_num = 30
+max_state_cov_num = 30
+max_state_only_num = 50
+triangulate_cond_num = 100
+max_feat_distance = 20.0
+min_feat_distance = 0.1
+thres_consecutive_hover = 3
+
+# For the new information manager
+fim_window_size_track_recovery = 4
+fim_window_size_mapping_track_recovery = 4
+fim_track_score_type = 0 #0: USE_TRACK_LENGTH, 1: USE_TRACK_SPAN, 2: USE_TRACK_DENSITY
+fim_min_score_mapping_tracks = 9
+fim_min_score_state_constraint_absorbed_tracks = 3
+fim_min_score_state_constraint_unabsorbed_tracks = 3
+fim_shuffle_tracks_before_selection = true
+
+# For the old information manager
+min_track_length = 4
+max_update_budget_statecov = 20000000
+max_update_budget_stateonly = 20000000
+triangulate_already_homogeneous = true
+
+
+##############################################
+#######  ODOMETRY PARAMETERS             #####
+##############################################
+
+use_odometry = false
+use_odometry_plane_constraint = false
+
+odometer_type = FILE ## "BLUETOOTH" or "FILE"
+odometry_path = /home/maya/kejian/datasets/yellowstone/keller_pioneer_ds/ds1/encoder_data.txt
+odometry_update_clones_num = 2
+odometry_clone_index_end_offset = 1
+
+odometry_multiplier = 0.00000757575757576
+left_wheel_radius = 0.9961151906054192
+right_wheel_radius = 0.9946315081791736
+wheel_baseline = 0.3533947182833486
+odom_q_imu =  [-0.6864433103377451 -0.01948200016803666   0.7264177121728173  0.02708026594442721]
+odom_p_imu = [-0.04699803779011278  0.03175607757822161 0]
+
+
+##############################################
+#######  MAP UPDATE PARAMETERS           #####
+##############################################
+
+use_relocalization = false
+map_based_relocalization_is_feature_based = true
+feature_tree_path = /sdcard/Download/feature_tree.tree
+map_path = /home/georgios/Datasets/tree/
+
+vt_min_num_reloc_match = 10
+vt_reloc_step_before_init = 1
+vt_reloc_step_after_init = 2
+vt_hamming_dist = 80
+
+min_num_relocinlier_update = 10
+min_num_reloc_init = 12
+
+propagate_map = false
+sigma_map_position_inv = 1000
+sigma_map_orientation_inv = 1000
+sigma_map_hovering_position_inv = 1000
+sigma_map_hovering_orientation_inv = 1000
+
+
+##############################################
+#######  WIFI PARAMETERS                 #####
+##############################################
+
+send_states_over_wifi = false
+receiver_ip = 192.168.10.8
+
+use_msckf = false

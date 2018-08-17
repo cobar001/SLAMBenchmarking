@@ -93,7 +93,7 @@ def main(args):
         printUsage()
         return
     elif not os.path.isdir(argv[1]) or not os.path.isdir(argv[2]):
-        print('Error: Invalid inputs.')
+        print('Error: Invalid inputs. Make sure directories exist already.')
         printUsage()
         return
     euroc_path = os.path.abspath(argv[1])

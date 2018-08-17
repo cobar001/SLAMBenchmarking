@@ -4,6 +4,12 @@
 
 import os, sys, shutil
 
+def printUsage():
+    print('Usage: python3 clean_slam_code.py '
+        '<package>')
+    print('Package options:')
+    print('okvis\nsvo\nrovio\nvins-mono\ncatkin_ws\norb-slam\nall')
+
 def printStatus(package):
 	print('*'*20)
 	print('Cleaning '+package)
@@ -17,10 +23,10 @@ def clean_okvis(slam):
     #clean okvis
     printStatus("okvis")
     os.chdir(okvis_dir)
-    if not os.path.isdir("build"):
-        print("okvis not built")
-        return
-    shutil.rmtree("build")
+    if os.path.isdir("build"):
+        shutil.rmtree("build")
+    if os.path.isdir('cmake-build-debug'):
+        shutil.rmtree("cmake-build-debug")
     print("okvis clean finished")
 
 def clean_svo(slam):
@@ -107,11 +113,11 @@ def clean_all(slam):
     clean_orbslam(slam)
     catkin_clean(slam)
 
-slam_dir = os.environ['SLAM_BM']
-packages_to_build = sys.argv[1:]
-if len(packages_to_build) == 0:
-    clean_all(slam_dir)
-else:
+def main(argv):
+    slam_dir = os.environ['SLAM_BM']
+    packages_to_build = argv
+    if len(packages_to_build) == 0:
+        printUsage()
     for p in packages_to_build:
         if 'okvis' in p:
             clean_okvis(slam_dir)
@@ -125,5 +131,11 @@ else:
             catkin_clean(slam_dir)
         elif 'orb-slam' in p:
             clean_orbslam(slam_dir)
+        elif 'all' in p:
+            clean_all(slam_dir)
         else:
-            print('Error: '+p+' package not recognized')
+            printUsage()
+
+if __name__ == '__main__':
+    argv = sys.argv
+    main(argv)

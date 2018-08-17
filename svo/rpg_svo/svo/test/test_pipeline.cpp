@@ -112,14 +112,20 @@ void BenchmarkNode::runFromFolder()
                       << "Proc. Time: " << vo_->lastProcessingTime()*1000 << "ms \n";
 
             double timestamp = vo_->lastFrame()->timestamp_;
-            Sophus::SE3 T_f_w = vo_->lastFrame()->T_f_w_;
+            Sophus::SE3 T_f_w = vo_->lastFrame()->T_f_w_.inverse();
             Eigen::Vector3d t = T_f_w.translation();
-            Eigen::Matrix3d R = T_f_w.rotation_matrix();
+//            Eigen::Matrix3d R = T_f_w.rotation_matrix();
+            Eigen::Quaterniond q = T_f_w.unit_quaternion();
+
+//            pose_file << std::setprecision(16) << timestamp << " " <<
+//              R(0,0) << " " << R(0,1) << " " << R(0,2) << " " <<
+//              R(1,0) << " " << R(1,1) << " " << R(1,2) << " " <<
+//              R(2,0) << " " << R(2,1) << " " << R(2,2) << " " <<
+//              t(0) << " " << t(1) << " " << t(2) << std::endl;
             pose_file << std::setprecision(16) << timestamp << " " <<
-              R(0,0) << " " << R(0,1) << " " << R(0,2) << " " <<
-              R(1,0) << " " << R(1,1) << " " << R(1,2) << " " <<
-              R(2,0) << " " << R(2,1) << " " << R(2,2) << " " <<
-              t(0) << " " << t(1) << " " << t(2) << std::endl;
+                      q.w() << " " << q.x() << " " << q.y() << " " <<
+                      q.z() << " " << t(0) << " " << t(1) << " " <<
+                      t(2) << std::endl;
         }
     }
     pose_file.close();
