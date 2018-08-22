@@ -68,7 +68,7 @@ class PoseViewer
   constexpr static const double imageSize = 500.0;
   PoseViewer()
   {
-//    cv::namedWindow("OKVIS Top View");
+    cv::namedWindow("OKVIS Top View");
     _image.create(imageSize, imageSize, CV_8UC3);
     drawing_ = false;
     showing_ = false;
@@ -292,8 +292,8 @@ int main(int argc, char **argv)
   int counter = 0;
   okvis::Time start(0.0);
   while (true) {
-//    okvis_estimator.display();
-//    poseViewer.display();
+    okvis_estimator.display();
+    poseViewer.display();
 
     // check if at the end
     for (size_t i = 0; i < numCameras; ++i) {

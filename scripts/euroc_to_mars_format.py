@@ -44,7 +44,7 @@ def convertIMU(euroc_path, output_path):
         for row in f_csv:
             # timestamp nano -> micro
             imu_output.write(str(int(float(row[0]) / 1000)) + ' 0 ' +\
-                ' '.join(row[1:4]) + ' 0 ' + ' '.join(row[4:7]) + ' 0 0 0 \n')
+                ' '.join(row[1:4]) + ' ' + ' '.join(row[4:7]) + ' 0 0 0 \n')
         icp.close()
     imu_output.close()
     print('IMU conversion complete')

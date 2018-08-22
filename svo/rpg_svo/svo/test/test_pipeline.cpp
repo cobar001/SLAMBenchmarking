@@ -102,6 +102,11 @@ void BenchmarkNode::runFromFolder()
         assert(!img.empty());
 
         // process frame
+        std::string full_file_path = full_file_paths[img_id];
+        size_t lastdir = full_file_path.find_last_of("/");
+        std::string raw_timestamp_str = full_file_path.substr(lastdir+1);
+        size_t lastext = raw_timestamp_str.find_last_of(".");
+        raw_timestamp_str = raw_timestamp_str.substr(0, lastext-3);
         vo_->addImage(img, 0.01*img_id);
 
         // display tracking quality
@@ -122,10 +127,9 @@ void BenchmarkNode::runFromFolder()
 //              R(1,0) << " " << R(1,1) << " " << R(1,2) << " " <<
 //              R(2,0) << " " << R(2,1) << " " << R(2,2) << " " <<
 //              t(0) << " " << t(1) << " " << t(2) << std::endl;
-            pose_file << std::setprecision(16) << timestamp << " " <<
-                      q.w() << " " << q.x() << " " << q.y() << " " <<
-                      q.z() << " " << t(0) << " " << t(1) << " " <<
-                      t(2) << std::endl;
+            pose_file << raw_timestamp_str << std::fixed << " "
+                << t(0) << " " << t(1) << " " << t(2) << " "
+                << q.w() << " " << q.x() << " " << q.y() << " " << q.z() << std::endl;
         }
     }
     pose_file.close();

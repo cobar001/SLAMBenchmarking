@@ -71,7 +71,9 @@ def build_rovio(slam):
 
 def build_VINSMono(slam):
     catkin_ws = slam + '/catkin_ws'
-    catkin_make(catkin_ws, "vins_estimator")
+    catkin_make(catkin_ws, "vins_estimator ar_demo "
+                           "benchmark_publisher feature_tracker "
+                           "pose_graph")
 
 def build_orbslam(slam):
     orb_slam_dir = slam + '/ORB_SLAM2'
@@ -81,9 +83,6 @@ def build_orbslam(slam):
     #build orb slam
     printStatus("orb slam")
     os.chdir(orb_slam_dir)
-    # if not os.path.isdir(orb_slam_dir + '/build'):
-    #     os.mkdir('build')
-    # os.chdir(orb_slam_dir + '/build')
     os.system('chmod +x build.sh')
     os.system('./build.sh')
     print('\norb slam build finished')

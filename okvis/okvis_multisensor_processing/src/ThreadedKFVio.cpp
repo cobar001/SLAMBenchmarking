@@ -873,7 +873,11 @@ void ThreadedKFVio::publisherLoop() {
 //        Eigen::Matrix3d C = result.T_WS.C();
         Eigen::Vector3d t = result.T_WS.r();
         Eigen::Quaterniond q = result.T_WS.q();
-        double timestamp_usec = result.stamp.toSec() * 1e6;
+        double timestamp_usec = result.stamp.toNSec() * 1e-3;
+        timestamp_usec = std::floor(timestamp_usec);
+        std::ostringstream timestamp_ss;
+        timestamp_ss << std::setprecision(16) << timestamp_usec;
+        std::string timestamp_str = timestamp_ss.str();
 //        if (first_timestamp_usec == -1.0) {
 //          first_timestamp_usec = timestamp_usec;
 //        }
@@ -886,9 +890,10 @@ void ThreadedKFVio::publisherLoop() {
 //                  << t(0) << " " << t(1) << " " << t(2) << "\n";
 
         // Log q quaternion
-        pose_file << std::setprecision(16) << timestamp_usec /* (timestamp_usec - first_timestamp_usec) */ << " "
-                  << q.w() <<" " << q.x() << " " << q.y() << " " << q.z() << " "
-                  << t(0) << " " << t(1) << " " << t(2) << "\n";
+        pose_file << timestamp_str << std::fixed << " "
+                << t(0) << " " << t(1) << " " << t(2) << " "
+                << q.w() <<" " << q.x() << " " << q.y() << " " << q.z() << " "
+                << "\n";
 
         fullStateCallback_(result.stamp, result.T_WS, result.speedAndBiases,
                            result.omega_S);

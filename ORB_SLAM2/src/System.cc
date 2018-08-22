@@ -25,6 +25,7 @@
 #include <thread>
 #include <pangolin/pangolin.h>
 #include <iomanip>
+#include <sstream>
 
 namespace ORB_SLAM2
 {
@@ -407,8 +408,17 @@ void System::SaveKeyFrameTrajectoryTUM(const string &filename)
         cv::Mat R = pKF->GetRotation().t();
         vector<float> q = Converter::toQuaternion(R);
         cv::Mat t = pKF->GetCameraCenter();
-        f << setprecision(6) << pKF->mTimeStamp << setprecision(7) << " " << t.at<float>(0) << " " << t.at<float>(1) << " " << t.at<float>(2)
-          << " " << q[0] << " " << q[1] << " " << q[2] << " " << q[3] << endl;
+        double timestamp = pKF->mTimeStamp;
+        timestamp *= 1e6;
+        timestamp = std::floor(timestamp);
+        std::ostringstream timestamp_ss;
+        timestamp_ss << setprecision(16) << timestamp;
+        std::string timestamp_str = timestamp_ss.str();
+//        size_t lastindex = timestamp_str.find_last_of(".");
+//        string processed_timestamp_str = timestamp_str.substr(0, lastindex);
+        f << timestamp_str << std::fixed << " "
+            << t.at<float>(0) << " " << t.at<float>(1) << " " << t.at<float>(2) << " "
+            << q[0] << " " << q[1] << " " << q[2] << " " << q[3] << endl;
 
     }
 

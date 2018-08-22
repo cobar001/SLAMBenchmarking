@@ -210,7 +210,7 @@ void pubKeyPoses(const Estimator &estimator, const std_msgs::Header &header)
 void pubCameraPose(const Estimator &estimator, const std_msgs::Header &header)
 {
     int idx2 = WINDOW_SIZE - 1;
-
+//    std::cout << "in pub camera pose: " << (estimator.solver_flag == Estimator::SolverFlag::NON_LINEAR) << std::endl;
     if (estimator.solver_flag == Estimator::SolverFlag::NON_LINEAR)
     {
         int i = idx2;
@@ -229,10 +229,13 @@ void pubCameraPose(const Estimator &estimator, const std_msgs::Header &header)
         odometry.pose.pose.orientation.w = R.w();
 
         pub_camera_pose.publish(odometry);
-
         cameraposevisual.reset();
         cameraposevisual.add_pose(P, R);
         cameraposevisual.publish_by(pub_camera_pose_visual, odometry.header);
+//        std::cout <<
+//        /*f << */std::fixed << header.stamp.toSec() << " "
+//            << P.x() << " " << P.y() << " " << P.z() << " "
+//            << R.w() << " " << R.x() << " " << R.y() << " " << R.z() << std::endl;
     }
 }
 
