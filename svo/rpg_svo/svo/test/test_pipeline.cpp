@@ -102,11 +102,6 @@ void BenchmarkNode::runFromFolder()
         assert(!img.empty());
 
         // process frame
-        std::string full_file_path = full_file_paths[img_id];
-        size_t lastdir = full_file_path.find_last_of("/");
-        std::string raw_timestamp_str = full_file_path.substr(lastdir+1);
-        size_t lastext = raw_timestamp_str.find_last_of(".");
-        raw_timestamp_str = raw_timestamp_str.substr(0, lastext-3);
         vo_->addImage(img, 0.01*img_id);
 
         // display tracking quality
@@ -122,6 +117,12 @@ void BenchmarkNode::runFromFolder()
 //            Eigen::Matrix3d R = T_f_w.rotation_matrix();
             Eigen::Quaterniond q = T_f_w.unit_quaternion();
 
+            std::string full_file_path = full_file_paths[img_id];
+            size_t lastdir = full_file_path.find_last_of("/");
+            std::string raw_timestamp_str = full_file_path.substr(lastdir+1);
+            size_t lastext = raw_timestamp_str.find_last_of(".");
+            raw_timestamp_str = raw_timestamp_str.substr(0, lastext-3);
+            
 //            pose_file << std::setprecision(16) << timestamp << " " <<
 //              R(0,0) << " " << R(0,1) << " " << R(0,2) << " " <<
 //              R(1,0) << " " << R(1,1) << " " << R(1,2) << " " <<

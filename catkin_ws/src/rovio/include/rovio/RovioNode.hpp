@@ -332,6 +332,7 @@ class RovioNode{
     markerMsg_.color.g = 1.0;
     markerMsg_.color.b = 0.0;
 
+
     pose_file_.open("/home/chris/MARS/SLAM_Benchmarking/output/rovio_pose.txt");
   }
 
@@ -676,12 +677,13 @@ class RovioNode{
 
         // Cout verbose for pose measurements
 //        if(mpImgUpdate_->verbose_){
-        if(mpPoseUpdate_->inertialPoseIndex_ >=0){
+        std::cout << "intertial pose index: " << mpPoseUpdate_->inertialPoseIndex_ << std::endl;
+        if(mpPoseUpdate_->inertialPoseIndex_ >=0) {
 //          std::cout << "Transformation between inertial frames, IrIW, qWI: " << std::endl;
 //          std::cout << "  " << state.poseLin(mpPoseUpdate_->inertialPoseIndex_).transpose() << std::endl;
 //          std::cout << "  " << state.poseRot(mpPoseUpdate_->inertialPoseIndex_) << std::endl;
         }
-        if(mpPoseUpdate_->bodyPoseIndex_ >=0){
+        if(mpPoseUpdate_->bodyPoseIndex_ >=0) {
           std::cout << "Transformation between body frames, MrMV, qVM: " << std::endl;
           std::cout << "  " << state.poseLin(mpPoseUpdate_->bodyPoseIndex_).transpose() << std::endl;
           std::cout << "  " << state.poseRot(mpPoseUpdate_->bodyPoseIndex_) << std::endl;
@@ -813,7 +815,6 @@ class RovioNode{
           pubTransform_.publish(transformMsg_);
         }
 
-        std::cout << "PI: " << mpPoseUpdate_->inertialPoseIndex_ << std::endl;
         if(pub_T_J_W_transform.getNumSubscribers() > 0 || forceTransformPublishing_){
           if (mpPoseUpdate_->inertialPoseIndex_ >= 0) {
             Eigen::Vector3d IrIW = state.poseLin(mpPoseUpdate_->inertialPoseIndex_);
@@ -1017,11 +1018,6 @@ class RovioNode{
         }
         gotFirstMessages_ = true;
 
-//        std::cout << "timestamp: " << T_J_W_Msg_.header.stamp << std::endl;
-//        std::cout << T_J_W_Msg_.transform.translation.x << " "
-//                  << T_J_W_Msg_.transform.translation.y << " " << T_J_W_Msg_.transform.translation.z << std::endl;
-//        std::cout << T_J_W_Msg_.transform.rotation.x << " " << T_J_W_Msg_.transform.rotation.y << " "
-//                  << T_J_W_Msg_.transform.rotation.z << " " << T_J_W_Msg_.transform.rotation.w << std::endl;
       }
     }
   }

@@ -28,6 +28,8 @@
 
 #include<System.h>
 
+#include "Converter.h"
+
 using namespace std;
 
 void LoadImages(const string &strImagePath, const string &strPathTimes,
@@ -66,6 +68,11 @@ int main(int argc, char **argv)
     cout << "Images in the sequence: " << nImages << endl << endl;
 
     // Main loop
+
+    ofstream f;
+    f.open("/home/mars/MARS/SLAMBenchmarking/output/orbslam2_pose.txt");
+    f << fixed;
+
     cv::Mat im;
     for(int ni=0; ni<nImages; ni++)
     {
@@ -87,7 +94,23 @@ int main(int argc, char **argv)
 #endif
 
         // Pass the image to the SLAM system
-        SLAM.TrackMonocular(im,tframe);
+        cv::Mat Tcw = SLAM.TrackMonocular(im,tframe);
+        if (!Tcw.empty()) {
+            cv::Mat Rwc = Tcw.rowRange(0,3).colRange(0,3).t();
+            cv::Mat twc = -Rwc*Tcw.rowRange(0,3).col(3);
+            vector<float> q = ORB_SLAM2::Converter::toQuaternion(Rwc);
+
+            double timestamp = tframe;
+            timestamp *= 1e6;
+            timestamp = std::floor(timestamp);
+            std::ostringstream timestamp_ss;
+            timestamp_ss << setprecision(16) << timestamp;
+            std::string timestamp_str = timestamp_ss.str();
+
+            f << timestamp_str << std::fixed << " "
+              << twc.at<float>(0) << " " << twc.at<float>(1) << " " << twc.at<float>(2) << " "
+              << q[0] << " " << q[1] << " " << q[2] << " " << q[3] << endl;
+        }
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
@@ -125,9 +148,10 @@ int main(int argc, char **argv)
     cout << "-------" << endl << endl;
     cout << "median tracking time: " << vTimesTrack[nImages/2] << endl;
     cout << "mean tracking time: " << totaltime/nImages << endl;
+    f.close();
 
     // Save camera trajectory
-    SLAM.SaveKeyFrameTrajectoryTUM("/home/mars/MARS/SLAMBenchmarking/output/orbslam2_pose.txt");
+//    SLAM.SaveKeyFrameTrajectoryTUM("/home/mars/MARS/SLAMBenchmarking/output/orbslam2_pose.txt");
 
     return 0;
 }
