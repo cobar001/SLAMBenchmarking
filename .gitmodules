@@ -1,3 +1,6 @@
 [submodule "ICE-BA"]
 	path = ICE-BA
 	url = https://github.com/baidu/ICE-BA
+[submodule "third-party/brisk"]
+	path = third-party/brisk
+	url = https://github.com/gwli/brisk
