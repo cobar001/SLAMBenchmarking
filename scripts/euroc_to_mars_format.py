@@ -80,7 +80,7 @@ def convertImages(euroc_path, output_path):
         full_path = cam0_images_path + '/' + image
         png_image = Image.open(full_path)
         png_image.save(images_output_dir + \
-            '/m' + format(index, '0>7') + '.pgm ', format='PPM')
+            '/m' + format(index, '0>7') + '.pgm', format='PPM')
         printProgressBar(index, len(cam0_images_paths), prefix = 'Progress:', \
             suffix = 'Complete', length = 40)
     print('\nImage conversion complete')
