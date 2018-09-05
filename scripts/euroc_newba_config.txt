@@ -1,0 +1,131 @@
+## BA Configuration file
+
+# Calibrated values
+fc = [458.654, 457.296]
+cc = [367.215, 248.375]
+kc = [-0.28340811, 0.07395907, 0.00019359, 1.76187114e-05, 0.0]
+
+camera_model = radial
+
+image_dim = [752, 480]
+
+min_num_observations = 6
+
+rolling_shutter_initial_time = 0.032
+rolling_shutter_sigma = 1e-4
+
+# Camera extrinsic parameters
+imu_q_cam = [ 0.007707179755538,  -0.010499323370588,  -0.701752800292051,   0.712301460669035]
+imu_p_cam = [-0.0216401454975, -0.064676986768, 0.00981073058949]
+
+# Point triangulation parameters
+dist_thres_low = 0.1
+dist_thres_high = 20
+reproj_thres_regular = 2
+
+reproj_thres_regular_single_meas = 6
+min_track_length_lc = 4
+min_track_length = 6
+min_lc_features_per_cam = 6
+
+point_pseudo_huber = 1.5
+
+loop_closure_detection_thr = 100
+lc_max_ransac_iters = 200
+reproj_thres_two_plus_one = 0.3
+
+rsts_enabled = true
+enable_imu_intrinsics = false
+
+gravity = [0, 0, -9.8]
+
+IMU_dt = 0.005
+sigma_r = 1.6968e-04
+sigma_w = 1.9393e-05
+sigma_g = 2.0000e-3
+sigma_v = 3.0000e-3
+accel_scale = 1.0
+
+# IMU Intrinsic parameters
+set_imu_intrinsics = false
+use_redwood_intrinsics = false
+#imu_intrinsics.a_q_g = [-0.002003406989859377, 0.005599339394060254, -0.001126508411457857, 0.9999816822010201]
+#imu_intrinsics.S_g = [-0.0008516781730642578, 0.0004890035920475562, 0.00163746642998007]
+#imu_intrinsics.D_g = [1.001829461781333, 1.000557982173335, 0.9935730679714806]
+#imu_intrinsics.S_a = [-0.02920460173216281, 0.02201043191146364, -0.0006574463660710642]
+#imu_intrinsics.D_a = [1.013095301329808, 1.026388378314848, 1.019859668094172]
+#imu_intrinsics.K_a = [0.0003197329717950148  0.0005972694253609539  0.0002602165366229654 -0.0007869159995195305 -0.0001257991448994374  0.0002234155431441417  0.0003410962347179821 -7.042584992822622e-05 -1.709583812091635e-05]
+
+imu_intrinsics.a_q_g = [0,0,0,1]
+imu_intrinsics.S_g = [0,0,0]
+imu_intrinsics.D_g = [1,1,1]
+imu_intrinsics.S_a = [0,0,0]
+imu_intrinsics.D_a = [1,1,1]
+imu_intrinsics.K_a = [0,0,0,0,0,0,0,0,0]
+
+
+# Free line settings
+line_dist_thr_high = 20.0
+line_dist_thr_low = 0.3
+line_reproj_thr = 0.5
+line_single_meas_reproj_thr = 1.5
+line_min_track_length = 4
+
+# VP Line settings
+vp_min_track_length = 4
+vp_angle_diff_w_axis_thr_degrees = 25
+vp_reproj_thr_regular = 1.0
+vp_reproj_thr_single_meas = 3.0
+vp_dist_thr_high = 20.0
+vp_dist_thr_low = 0.3
+
+estimate_camera_intrinsics = false
+estimate_camera_intrinsics_distortion_dim = 1
+
+use_cholmod = true
+max_iterations = 15
+delta_x_thr = 1e-5
+gradient_norm_thr = 0.5
+
+sigma_ts = 1e-5
+
+feat_fov = false
+
+parallelize = false
+
+max_speed_threshold = 1e10
+max_distance_threshold = 100
+max_time_sync_threshold = 0.05
+max_delta_x_threshold = 1e-3
+max_gradient_norm_threshold = 5
+estimate_imu_camera_extrinsics = true
+
+
+enable_odometry = false
+save_map_for_localization = false
+
+odometry.init.first_pose = 100
+odometry.init.time_window_range_addition = 20
+odometry.init.scale = 0.01
+odometry.init.final_pose = 800
+odometry.init.final_poses_to_drop = 10
+
+
+enable_gps = false
+
+GPS_time_raw_file = /usr/local/google/home/sartipi/datasets/mars/vicon_test/GPS_time.txt
+GPS_pos_quat_raw_file = /usr/local/google/home/sartipi/datasets/mars/vicon_test/GPS_pos_quat.txt
+gps_pos_sigma = 1e-3
+gps_ori_sigma = 1e-2
+
+gps_reproj_thr_pos = 3.0
+gps_reproj_thr_ori = 0.5
+gps_pseudo_huber_param = 1.5
+gps.init.first_pose = 10
+gps.init.time_window_range_addition = 200
+gps.init.scale = 0.01
+gps.init.final_pose = 800
+gps.init.final_poses_to_drop = 10
+
+IMU_preintegration = true
+estimate_rsts = true
