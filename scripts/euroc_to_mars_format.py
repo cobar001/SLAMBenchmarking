@@ -42,8 +42,8 @@ def convertIMU(euroc_path, output_path):
         f_csv = csv.reader(icp)
         headers = next(f_csv) # skip header line
         for row in f_csv:
-            # timestamp nano -> micro
-            imu_output.write(str(int(float(row[0]) / 1000)) + ' 0 ' +\
+            # timestamp nano -> second
+            imu_output.write(str(float(row[0]) / 1e9) + ' 0 ' +\
                 ' '.join(row[1:4]) + ' ' + ' '.join(row[4:7]) + ' 0 0 0 \n')
         icp.close()
     imu_output.close()
@@ -67,9 +67,9 @@ def convertImages(euroc_path, output_path):
         f_csv = csv.reader(ccp)
         headers = next(f_csv) # skip header line
         for index, row in enumerate(f_csv):
-            # timestamp nano -> micro
+            # timestamp nano -> second
             camera_timestamp_output.write('m' + format(index, '0>7') \
-            + '.pgm ' + str(int(float(row[0]) / 1000)) + '\n')
+            + '.pgm ' + str(float(row[0]) / 1e9) + '\n')
         ccp.close()
     camera_timestamp_output.close()
     # png -> pgm
